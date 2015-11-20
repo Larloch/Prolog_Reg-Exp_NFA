@@ -3,9 +3,6 @@
 %%%% re-nfa.pl --
 %%%% A balanced RegExp to NFA compiler.
 
-%%%% Author: Federico Spinardi
-%%%% Student ID: 781077
-%%%% Date: 30/11/2014
 %%%% See: README.txt
 
 %%%% ---------------------------------------------------------------------------
@@ -73,7 +70,7 @@ is_symbol_list([S | Ss]) :-
 	is_symbol_list(Ss).
 
 %%	is_operator(Operator).
-% Predicato Privato, true se Operator Ë un operatore valido.
+% Predicato Privato, true se Operator √® un operatore valido.
 % Ausiliario a is_regexp/1 e is_regexp_list/1.
 is_operator(star). % One Argument
 is_operator(plus). % One Argument
@@ -113,10 +110,10 @@ nfa_compile_re(FA_Id, RE) :-
 	nfa_end(FA_Id, QFinal).
 
 %%	nfa_comp_re(ID, RegExp, Ultimo, Successivo, Ausiliario, Stato).
-% Predicato Privato, true se RE e' una regexp, Ultimo Ë uno stato 'qn'
-% valido, Ausiliario (quando usato) Ë anch'esso uno stato valido,
-% Stato Ë una delle due costanti di tipo di stato valide.
-% Successivo Ë una variabile libera (il risultato del predicato).
+% Predicato Privato, true se RE e' una regexp, Ultimo √® uno stato 'qn'
+% valido, Ausiliario (quando usato) √® anch'esso uno stato valido,
+% Stato √® una delle due costanti di tipo di stato valide.
+% Successivo √® una variabile libera (il risultato del predicato).
 % Ausiliario a nfa_compile_re/2 ed a tutti i sottopredicati per la
 % ricorsione.
 nfa_comp_re(FA_Id, RE, Qlast, Qnext, _Aux, normal) :-
@@ -152,10 +149,10 @@ nfa_comp_re(FA_Id, RE, Qlast, Qnext, Aux, State) :-
 
 
 %%	nfa_comp_re_star(ID, Argomento, Ultimo, Succ., Ausil., Stato).
-% Predicato Privato, true se Argomento Ë un operando valido
-% (Espressione Regolare) per l'operatore 'star', Ultimo Ë uno stato 'qn'
-% valido, Ausiliario (quando usato) Ë anch'esso uno stato valido, Stato
-% Ë una delle due costanti di tipo di stato valide. Successivo Ë una
+% Predicato Privato, true se Argomento √® un operando valido
+% (Espressione Regolare) per l'operatore 'star', Ultimo √® uno stato 'qn'
+% valido, Ausiliario (quando usato) √® anch'esso uno stato valido, Stato
+% √® una delle due costanti di tipo di stato valide. Successivo √® una
 % variabile libera (il risultato del predicato).
 % Ausiliario a nfa_comp_re/2 e nfa_comp_re_plus/6.
 % Compone la chiusura di Kleene 'star' su una RegExp.
@@ -179,10 +176,10 @@ nfa_comp_re_star(FA_Id, Arg, Qlast, Qdead, Aux, bar) :-
 
 
 %%	nfa_comp_re_plus(ID, Argomento, Ultimo, Succ., Ausil., Stato).
-% Predicato Privato, true se Argomento Ë un operando valido
-% (Espressione Regolare) per l'operatore 'plus', Ultimo Ë uno stato 'qn'
-% valido, Ausiliario (quando usato) Ë anch'esso uno stato valido, Stato
-% Ë una delle due costanti di tipo di stato valide. Successivo Ë una
+% Predicato Privato, true se Argomento √® un operando valido
+% (Espressione Regolare) per l'operatore 'plus', Ultimo √® uno stato 'qn'
+% valido, Ausiliario (quando usato) √® anch'esso uno stato valido, Stato
+% √® una delle due costanti di tipo di stato valide. Successivo √® una
 % variabile libera (il risultato del predicato).
 % Ausiliario a nfa_comp_re/2.
 % Compone la chiusura di Kleene 'plus' su una RegExp.
@@ -194,9 +191,9 @@ nfa_comp_re_plus(FA_Id, Arg, Qlast, Qnext, Aux, bar) :-
 
 %%	nfa_comp_re_seq(ID, Args. List, Ultimo, Succ., Ausil., Stato).
 % Predicato Privato, true se la Arguments List contiene Espressioni
-% Regolari valide, Ultimo Ë uno stato 'qn' valido,
-% Ausiliario (quando usato) Ë anch'esso uno stato valido, Stato Ë una
-% delle due costanti di tipo di stato valide. Successivo Ë una variabile
+% Regolari valide, Ultimo √® uno stato 'qn' valido,
+% Ausiliario (quando usato) √® anch'esso uno stato valido, Stato √® una
+% delle due costanti di tipo di stato valide. Successivo √® una variabile
 % libera (il risultato del predicato).
 % Ausiliario a nfa_comp_re/2 e nfa_comp_re_plus/6.
 % Compone il ramo dell'automa dell'operatore 'seq'.
@@ -221,10 +218,10 @@ nfa_comp_re_seq(FA_Id, Arg, Qlast, Qdead, Aux, bar) :-
 
 
 %%	nfa_comp_re_bar(ID, Argomento, Ultimo, Succ., Ausil., Stato).
-% Predicato Privato, true se Argomento Ë un operando valido
-% (Espressione Regolare) per l'operatore 'bar', Ultimo Ë uno stato
-% 'qn' valido, Ausiliario (quando usato) Ë anch'esso uno stato valido,
-% Stato Ë una delle due costanti di tipo di stato valide. Successivo Ë
+% Predicato Privato, true se Argomento √® un operando valido
+% (Espressione Regolare) per l'operatore 'bar', Ultimo √® uno stato
+% 'qn' valido, Ausiliario (quando usato) √® anch'esso uno stato valido,
+% Stato √® una delle due costanti di tipo di stato valide. Successivo √®
 % una variabile libera (il risultato del predicato).
 % Ausiliario a nfa_comp_re/2.
 % Crea o rimuove lo stato di negazione dall'automa.
@@ -238,9 +235,9 @@ nfa_comp_re_bar(FA_Id, Arg, Qlast, Qnext, Aux, bar) :-
 
 %%	nfa_comp_re_alt(ID, Argomento, Ultimo, Succ., Ausil., Stato).
 % Predicato Privato, true se la Arguments List contiene Espressioni
-% Regolari valide, Ultimo Ë uno stato 'qn' valido,
-% Ausiliario (quando usato) Ë anch'esso uno stato valido, Stato Ë una
-% delle due costanti di tipo di stato valide. Successivo Ë una variabile
+% Regolari valide, Ultimo √® uno stato 'qn' valido,
+% Ausiliario (quando usato) √® anch'esso uno stato valido, Stato √® una
+% delle due costanti di tipo di stato valide. Successivo √® una variabile
 % libera (il risultato del predicato).
 % Ausiliario a nfa_comp_re/2.
 % Crea i rami dell'automa dell'operatore 'alt'.
@@ -269,9 +266,9 @@ nfa_comp_re_alt(FA_Id, [Arg | As], Qlast, Qnext, Aux, normal) :-
 
 %%	nfa_comp_re_alt_n(ID, Args. List, Ultimo, Succ., Ausil., Stato).
 % Predicato Privato, true se la Arguments List contiene Espressioni
-% Regolari, Ultimo Ë uno stato 'qn' valido, Ausiliario (quando usato) Ë
-% anch'esso uno stato valido, Stato Ë una delle due costanti di tipo di
-% stato valide. Successivo Ë una variabile libera (il risultato del
+% Regolari, Ultimo √® uno stato 'qn' valido, Ausiliario (quando usato) √®
+% anch'esso uno stato valido, Stato √® una delle due costanti di tipo di
+% stato valide. Successivo √® una variabile libera (il risultato del
 % predicato).
 % Ausiliario a nfa_comp_re_alt/6.
 % Compone i rami dell'automa dal secondo all'ultimo di 'alt'.
@@ -304,7 +301,7 @@ nfa_end(FA_Id, QFinal) :-
 
 %%	nfa_delta(ID, RegExp, Iniziale, Finale, Tipo).
 % Predicato privato, crea una mossa dallo stato Iniziale allo stato
-% Finale. Tipo definisce il tipo di mossa che verr‡ inserita nella base
+% Finale. Tipo definisce il tipo di mossa che verr√† inserita nella base
 % di dati Prolog.
 % Ausiliario a tutti i predicati che in fase di compilazione dell'automa
 % creano delle mosse.
@@ -342,14 +339,14 @@ nfa_delta(FA_Id, _RE, QA, QZ, epsilon_back) :-
 	epsilon_back/3.
 
 %%	nfa_recognize(Autom ID, Inputs List).
-% Predicato pubblico, true se Inputs List Ë una lista di simboli validi
+% Predicato pubblico, true se Inputs List √® una lista di simboli validi
 % per l'automa identificato da FA_Id, ed al termine della computazione
 % l'automa si trova in uno stato di accettazione.
 nfa_recognize(FA_Id, Input) :-
 	catch(nfa_recog(FA_Id, Input), Err, nfa_error(Err)).
 
 %%	nfa_recog(Autom ID, Inputs List).
-% Predicato privato, true se Inputs List Ë una lista di simboli validi
+% Predicato privato, true se Inputs List √® una lista di simboli validi
 % per l'automa identificato da FA_Id, ed al termine della computazione
 % l'automa si trova in uno stato di accettazione.
 % Ausiliario a nfa_recognize/2.
